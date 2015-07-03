@@ -1,6 +1,4 @@
 Author: Miguel Camberos
-Phone: 0423815222
-email: miguel.camberos@gmail.com
 Project: Liberty Financial Demo
 Date: June 20 2015
 
