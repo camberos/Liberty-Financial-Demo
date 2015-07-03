@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!--
+
+Author: Miguel Camberos
+Phone: 0423815222
+email: miguel.camberos@gmail.com
+Project: Liberty Financial Demo
+Date: June 20 2015
+
+Description: Basic demonstration of the usage of frameworks, basic form validation, mockup login system
+	     basic responsive media queries, animation demonstration using animate.css
+             demonstration of SPA technique. any questions let me know.
+
+-->
+<html>
+    <head>
+        <title>Liberty Financial</title>
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="js/angular.min.js" type="text/javascript"></script>
+        <script src="js/jquery.backstretch.min.js" type="text/javascript"></script>
+        
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    </head>
+    <body ng-app="myApp" ng-controller="userCtrl">
+        <div id="tabs-min">
+            <div id="optionTab" class="optionTabOutline" ng-hide="showModel0">
+                        <input type="radio" value="registration" id="firstTab" name="tabOption" ng-click="changeTabs()" ng-model="showTabs" />
+                        <label for="firstTab" class="radioTabs">Registration</label>
+                        <input type="radio" value="login" id="secondTab" name="tabOption" ng-click="changeTabs()" ng-model="showTabs" />
+                        <label for="secondTab" class="radioTabs">Login</label>
+            </div>
+            <div id="tabs-1" class="animated fadeIn" ng-hide="showModel1">
+               <div class="formOutline">
+                <div class="heading"> 
+                  <img src="img/Liberty-Financial-Logo.gif" alt="" />
+                  <h1>Registration</h1>
+                </div>
+                  <form name="myForm" id="registrationForm" ng-submit="submitRegistration(myForm.$valid)" class="css-form" novalidate>
+                  <div class="accountType">
+                      <input type="radio" value="Personal" id="firstButton" name="account" ng-model="form.accountType" checked/>
+                      <label for="firstButton" class="radio">Personal</label>
+                      <input type="radio" value="Company" id="secondButton" name="account" ng-model="form.accountType" />
+                      <label for="secondButton" class="radio">Company</label>
+                  </div>
+                  <dl class="formInputs">
+                    <dt>
+                      <label class="formLabel" for="username">User Name</label>
+                    </dt>
+                    <dd>
+                        <div class="control-group">
+                            <input type="text" name="username" id="username" placeholder="Username" ng-model="form.userName" required />
+                        </div>
+                    </dd>
+                    <dt>
+                      <label class="formLabel" for="password">Password</label>
+                    </dt>
+                    <dd>
+                      <input type="password" name="password" id="password" placeholder="Password" ng-model="form.password" required/>
+                    </dd>
+                    <dt>
+                      <label class="formLabel" for="email">Repeat Password</label>
+                    </dt>
+                    <dd>
+                      <input type="password" name="password" id="password" placeholder="Password" ng-model="form.passwordRepeat" required/>
+                    </dd>
+                    <dt>
+                      <label class="formLabel" for="email">Email</label>
+                    </dt>
+                    <dd>
+                      <input type="email" name="email" id="email" placeholder="Email" ng-model="form.email"  required/>
+                    </dd>
+                    <dt>
+                      <label class="formLabel" for="name">Name</label>
+                    </dt>
+                    <dd>
+                      <input type="text" name="name" id="name" placeholder="Name" ng-model="form.name"  required/>
+                    </dd>
+                    <dt>
+                      <label class="formLabel" for="address">Address</label>
+                    </dt>
+                    <dd>
+                      <input type="text" name="address" id="name" placeholder="Address" ng-model="form.address" required/>
+                    </dd>     
+                    
+                  </dl>
+                  <div class="gender">
+                      <input type="radio" value="Male" id="male" name="gender" ng-model="form.gender" required/>
+                      <label for="male" class="radio">Male</label>
+                      <input type="radio" value="Female" id="female" name="gender" ng-model="form.gender" required/>
+                      <label for="female" class="radio">Female</label>
+                   </div> 
+                   
+                      <a id="registrationButton" href="#" class="button" ng-click="submitRegistration(myForm.$valid)">
+                          <span data-ng-hide="loading">
+                                Register > 
+                          </span>
+                          <span data-ng-show="loading">
+                                Saving >
+                          <i class="fa fa-spinner fa-spin"></i>
+                          </span>
+                      </a>
+                       
+                </form>
+              </div>    
+            </div>
+            
+            <div id="tabs-2" class="animated fadeIn" ng-hide="showModel2">
+                <div class="formOutlineLogin">
+                <div class="heading"> 
+                  <img src="img/Liberty-Financial-Logo.gif" alt="" />
+                  <h1>Sign In</h1>
+                </div>
+                 <form name="myLogin" id="loginForm" ng-submit="submitLogin(myLogin.$valid)" class="css-form" novalidate>
+                   <dl class="formInputs">
+                    <dt>
+                      <label class="formLabel" for="username">User Name</label>
+                    </dt>
+                    <dd>
+                      <input type="text" name="username" id="email" placeholder="Username" ng-model="form.userNameLogin" required/>
+                    </dd>
+                    <dt>
+                      <label class="formLabel" for="password">Password</label>
+                    </dt>
+                    <dd>
+                      <input type="password" name="password" id="password" placeholder="Password" ng-model="form.userPassLogin" required/>
+                    </dd>
+                  </dl>
+                     <div id="login-option">
+                         <a id="login" href="#" class="button" ng-click="submitLogin(myLogin.$valid)">
+                          <span data-ng-hide="loading">
+                                Login > 
+                          </span>
+                          <span data-ng-show="loading">
+                                Loading...
+                          <i class="fa fa-spinner fa-spin"></i>
+                          </span>
+                         </a>
+                         <a id="forgot_password" class="password">Forgot Password?</a>
+                     </div>
+                </form>
+              </div>
+            </div>
+            
+            <div id="registrationSuccess" class="animated fadeIn" ng-hide="showModel3">
+                <div class="formOutlineLogin">
+                <div class="heading"> 
+                  <img src="img/Liberty-Financial-Logo.gif" alt="" />
+                  <h1>Registration Successful</h1>
+                </div>
+                 <form name="myLogin" id="loginForm" ng-submit="submitLogin(myLogin.$valid)" class="css-form" novalidate>
+                   <dl class="formInputs">
+                    <dt>
+                        <h2>User Name: {{ form.userName }}</h2>
+                    </dt>
+                    <dd>
+                        <br>
+                    </dd>
+                    <dt>
+                        <h2>Name: {{ form.name }}</h2>
+                    </dt>
+                    <dd>
+                      <br>
+                    </dd>
+                    <dt>
+                        <h2>Email: {{ form.email }}</h2>
+                    </dt>
+                    <dd>
+                      <br>
+                    </dd>
+                    <dt>
+                        <h2>Account Type: {{ form.accountType }}</h2>
+                    </dt>
+                    <dd>
+                      <br>
+                    </dd>
+                  </dl>
+                     <a id="doneUser" onClick="window.location.reload()"  class="button">Done</a>
+                </form>
+              </div>
+            </div>
+            <div id="loginSuccess" class="animated fadeIn" ng-hide="showModel4">
+                <div class="formOutlineLogin">
+                <div class="heading"> 
+                  <img src="img/Liberty-Financial-Logo.gif" alt="" />
+                  <h1>Welcome </h1>
+                </div>
+                 <form name="myLoginSuccess" id="loginSuccess">
+                   <dl class="formInputs">
+                    <dt>
+                        <h2>User Name: {{ mylogin.userNameLogin }}</h2>
+                    </dt>
+                    <dd>
+                        <br>
+                    </dd>
+                    <dt>
+                        <h2>Name: {{ mylogin.userName }}</h2>
+                    </dt>
+                    <dd>
+                      <br>
+                    </dd>
+                    <dt>
+                        <h2>Email: {{ mylogin.userEmail }}</h2>
+                    </dt>
+                    <dd>
+                      <br>
+                    </dd>
+                    <dt>
+                        <h2>Account Type: {{ mylogin.userAccountType }}</h2>
+                    </dt>
+                    <dd>
+                      <br>
+                    </dd>
+                  </dl>
+                     <a id="logoutUser" onClick="window.location.reload()" class="button">Logout</a>
+                </form>
+              </div>
+            </div>
+        </div>
+        
+     <script src = "js/app.js"></script>
+    </body>
+</html>

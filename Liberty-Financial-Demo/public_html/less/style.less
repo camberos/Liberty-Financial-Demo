@@ -1,0 +1,303 @@
+@import "variables.less";
+
+* { 
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  border: 0;
+}
+
+ol, ul, li {
+  list-style:none;
+}
+
+:focus {
+  outline: none;
+}
+
+body,
+input,
+textarea,
+select {
+  font-family: @font-primary;
+  font-size: @font-size;
+  color: #4c4c4c;
+}
+
+.formOutline {
+  margin: 20px auto;
+  width: 480px; 
+  height: 730px; 
+  border: solid 1px #cbc9c9;
+  background-color: #fff;
+  padding: 20px;
+  -webkit-border-radius: 5px; 
+  -moz-border-radius: 5px; 
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24); 
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24); 
+  box-shadow: 0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);
+  text-align: center;
+}
+
+.formOutlineLogin {
+  margin: 20px auto;
+  width: 480px; 
+  height: 410px; 
+  border: solid 1px #cbc9c9;
+  background-color: #fff;
+  padding: 20px;
+  -webkit-border-radius: 5px; 
+  -moz-border-radius: 5px; 
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24); 
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24); 
+  box-shadow: 0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);
+  text-align: center;
+}
+
+.optionTabOutline {
+  margin: 20px auto;
+  width: 480px; 
+  height: 30px; 
+  border: solid 1px #cbc9c9;
+  background-color: #fff;
+  padding: 20px;
+  -webkit-border-radius: 5px; 
+  -moz-border-radius: 5px; 
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24); 
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24); 
+  box-shadow: 0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);
+  text-align: center;
+}
+
+.heading {
+  display: inline-table;
+  padding-top: 20px;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 300;
+  color: #4c4c4c;
+  text-align: center;
+  vertical-align: middle;
+  padding-bottom: 10px;
+  padding-top: 20px
+}
+
+.heading img {
+  display: table-cell;
+}
+
+.accountType{
+  margin-top: 15px;
+}
+
+input[type=radio] {
+  visibility: hidden;
+}
+
+label.radio {
+  cursor: pointer;
+  text-indent: 35px;
+  overflow: visible;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+label.radio:before {
+  background: @brand-primary;
+  content:'';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+}
+
+label.radio:after {
+  opacity: 0;
+  content: '';
+  position: absolute;
+  width: 0.5em;
+  height: 0.25em;
+  background: transparent;
+  top: 4.5px;
+  left: 4.5px;
+  border: 3px solid #fff;
+  border-top: none;
+  border-right: none;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+label.radioTabs {
+  cursor: pointer;
+  text-indent: 35px;
+  overflow: visible;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 15px;
+  font-size: 30px;
+  font-weight: 300;
+  color: #4c4c4c;
+}
+
+label.radioTabs:before {
+  background: @brand-primary;
+  content:'';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+}
+
+label.radioTabs:after {
+  opacity: 0;
+  content: '';
+  position: absolute;
+  width: 0.5em;
+  height: 0.25em;
+  background: transparent;
+  top: 7.5px;
+  left: 6.5px;
+  border: 3px solid #fff;
+  border-top: none;
+  border-right: none;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+input[type=radio]:checked + label:after {
+  opacity: 1;
+}
+
+.formInputs {
+  margin-top: 10px;
+}
+
+.formInputs input {
+  width: 80%; 
+  height: 35px;
+  -webkit-border-radius: 4px; 
+  -moz-border-radius: 4px; 
+  border-radius: 4px; 
+  background-color: #fff; 
+  -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  box-shadow: 1px 2px 5px rgba(0,0,0,.09); 
+  border: solid 1px #cbc9c9;
+  margin-top: 5px; 
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+
+.formInputs label {
+  font-weight: bold;
+}
+
+.gender {
+  margin-bottom: 12px;
+  margin-top: 12px;
+  margin-right: 32px;
+}
+
+a.button{
+	background: @brand-primary;
+	border-radius: 5px;
+	padding: 5px 12px;
+	display: block;
+	font-family: arial;
+	font-size: 20px;
+	color:#FFF;
+	text-decoration: none;
+	width: 145px;
+        margin-top: 10px;
+	margin-bottom: 10px;
+        margin-left: 150px;
+}
+
+a.button i{
+	float: right;
+	margin-top: 2px;
+}
+
+a.button:hover{
+	box-shadow: 0px 0px 1px white inset, 0px -11px 20px white, 0px 2px 5px rgba(0, 0, 0, 0.1), 0px 8px 10px rgba(0, 0, 0, 0.1);
+}
+
+a.button:active{
+	background:-webkit-linear-gradient(top, #d1d1d1 0%,#d1d1d1 100%);
+}
+
+#login-option {
+    width: 100%;
+    padding-top: 14px;
+}
+#forgot_password {
+    font-size: 12px;
+}
+
+ .css-form input.ng-invalid.ng-touched {
+    background-color: #F08080;
+  }
+
+  .css-form input.ng-valid.ng-touched {
+    background-color: #F0FFFF;
+  }
+  
+/* Responsive Styles - Using bootstrap can save time doing this, this is only a sample of how to use media queries */
+  
+@media (min-width: 1200px) {  
+}
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+}
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+    
+    a.button {
+        margin-left: auto;
+        width: auto;
+    }
+    .gender {
+        margin-right: auto;
+    }
+    .formOutline {
+        width: 95%;
+        padding: initial;
+        height: 760px;
+    }
+    .formOutlineLogin {
+        width: 95%;
+        padding: initial;
+    }
+    .optionTabOutline {
+        width: 95%;
+        padding: initial;
+        height: 44px;
+        padding-top: 13px;
+    }
+
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) {
+}
